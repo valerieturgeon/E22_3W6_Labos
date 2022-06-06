@@ -11,11 +11,11 @@ namespace ZombieParty.Controllers
   {
     public IActionResult Index()
     {
-      this.ViewBag.MaListe = new List<ZombieType>()
-      {
-        new ZombieType(){TypeName= "Virus", Id=1},
-        new ZombieType(){TypeName= "Contact", Id=2}
-      };
+      //this.ViewBag.MaListe = new List<ZombieType>()
+      //{
+      //  new ZombieType(){TypeName= "Virus", Id=1},
+      //  new ZombieType(){TypeName= "Contact", Id=2}
+      //};
 
       return View();
     }
