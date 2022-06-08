@@ -29,4 +29,4 @@
 				new ZombieType { Id=7, TypeName="Morsure" },
 				new ZombieType { Id=8, TypeName="vampzombie" }
 			);
-			#end region
+			#endregion
