@@ -23,10 +23,10 @@
 			
 			#region ZombieType
 			modelBuilder.Entity<ZombieType>().HasData(
-				new ZombieType { Id=4, TypeName="Contact" },
-				new ZombieType { Id=5, TypeName="Virus" },
-				new ZombieType { Id=6, TypeName="Chimique" },
-				new ZombieType { Id=7, TypeName="Morsure" },
-				new ZombieType { Id=8, TypeName="vampzombie" }
+				new ZombieType { Id=1, TypeName="Contact" },
+				new ZombieType { Id=2, TypeName="Virus" },
+				new ZombieType { Id=3, TypeName="Chimique" },
+				new ZombieType { Id=4, TypeName="Morsure" },
+				new ZombieType { Id=5, TypeName="vampzombie" }
 			);
 			#endregion
