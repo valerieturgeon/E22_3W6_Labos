@@ -20,3 +20,13 @@
                 new Zombie { Id = 17, Point = 4, Force = 7, ShortDesc = "La fêtarde du samedi soir qui cherche les fêtes et les bars en vogue", Name = "Mathilde", ZombieTypeId = 3 }
             );
             #endregion
+			
+			#region ZombieType
+			modelBuilder.Entity<ZombieType>().HasData(
+				new ZombieType { Id=4, TypeName="Contact" },
+				new ZombieType { Id=5, TypeName="Virus" },
+				new ZombieType { Id=6, TypeName="Chimique" },
+				new ZombieType { Id=7, TypeName="Morsure" },
+				new ZombieType { Id=8, TypeName="vampzombie" }
+			);
+			#end region
