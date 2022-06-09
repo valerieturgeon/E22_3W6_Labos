@@ -1,0 +1,58 @@
+﻿@using MovieLand_Models
+@model Movie
+
+@{
+    ViewData["Title"] = "Détails";
+}
+
+
+<div class="row actions-container center mb-5">
+    <div class="col-1">
+        <a asp-action="Index"><i class="bi bi-arrow-left-circle-fill text-white" title="Retour à la liste"></i></a>
+    </div>
+    <div class="col-1">
+        <a asp-action="Edit" asp-route-id="@Model.MovieId"><i class="bi bi-pencil-fill text-white" title="Modifier le film"></i></a>
+    </div>
+</div>
+<div class="row movie-container justify-content-center align-items-center">
+    <div class="col-2 movie-image-wrapper" id="@Model.MovieId">
+        <div class="card border-0 h-100" style="width:100%;">
+            <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_multi_faces/@(Model.Poster)" alt="@Model.Title">
+        </div>
+    </div>
+    <div class="col-6 movie-infos-wrapper" id="@Model.MovieId">
+        <div class="row">
+            <div class="col-12 title">
+                <span class="name">@Model.Title</span> <span class="year">(@Model.ReleaseYear)</span>
+            </div>
+            <div class="col-12 infos">
+                <div class="runtime"><span class="label">Durée:</span> <span class="value">@((int)Math.Floor(@Model.Runtime / 60.0) + "h " + (@Model.Runtime % 60) + "m")</span></div>
+            </div>
+            <div class="col-12 infos">
+                <div class="runtime"><span class="label">Genres:</span> <span class="value">@(string.Join(", ", Model.Genres.Select(mg => mg.Genre.Name).OrderBy(n => n)))</span></div>
+            </div>
+            <div class="col-12 infos">
+                <div class="runtime"><span class="label">Langues:</span> <span class="value">@(string.Join(", ", Model.Languages.Select(ml => ml.Language.Name).OrderBy(n => n)))</span></div>
+            </div>
+            <div class="col-12 infos">
+                <div class="runtime"><span class="label">Version originale:</span> <span class="value">@Model.Languages.Where(ml => ml.IsOriginalLanguage).Select(ml => ml.Language.Name).SingleOrDefault()</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="movie-cast mt-3">
+    <div class="row">
+        @foreach(MovieCast mc in Model.Casts.Where(c => c.Actor.Profile != "").OrderBy(c => c.Order).Take(7))
+        {
+        <div class="col actor_wrapper mb-3" id="@mc.ActorId">
+            <div class="card border-0 h-100" style="width:100%;">
+                <img class="card-img-top" src="https://image.tmdb.org/t/p/w138_and_h175_face/@(mc.Actor.Profile)" alt="@mc.Actor.Name">
+                <div class="card-body">
+                    <h5 class="card-title mb-0" style="font-size:1rem;">@mc.Actor.Name</h5>
+                    <p class="card-text" style="font-size:0.8rem;">@mc.Character</p>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
