@@ -30,7 +30,10 @@ namespace MovieLand.Controllers
                 return NotFound();
             }
 
-            Genre genre = _db.Genres.FirstOrDefault(g => g.GenreId == id);
+            Genre genre = _db.Genres
+                                .Where(g => g.GenreId == id)
+                                .Include(g => g.Movies).ThenInclude(mg => mg.Movie)
+                                    .FirstOrDefault();
             if (genre == null)
             {
                 return NotFound();
