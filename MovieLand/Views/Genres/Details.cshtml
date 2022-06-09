@@ -1,0 +1,22 @@
+﻿@using MovieLand_Models
+@model Genre
+
+@{
+    ViewData["Title"] = "Détails";
+}
+
+
+<div class="row actions-container center mb-5">
+    <div class="col-1">
+        <a asp-action="Index"><i class="bi bi-arrow-left-circle-fill text-white" title="Retour à la liste"></i></a>
+    </div>
+</div>
+<div class="row genre-container justify-content-center align-items-center">
+    <div class="col-6 genre-infos-wrapper" id="@Model.GenreId">
+        <div class="row">
+            <div class="col-12 title text-center">
+                <span class="name">@Model.Name</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,6 +15,12 @@ a.navbar-brand {
     font-weight: 700;
 }
 
+.navbar-dark .nav-item.menu .nav-link {
+    color: #e50914;
+    font-size:24px;
+    font-weight: 700;
+}
+
 .navbar-nav .nav-item:not(:last-child) {
     margin-right: 15px;
 }
@@ -111,6 +117,7 @@ body {
 
 .actions-container.center,
 .movie-container,
+.genre-container,
 .items-container {
     max-width: 1400px;
     margin-left: auto !important;
@@ -126,16 +133,19 @@ body {
     background-size: contain;
 }
 
-.movie-container .movie-infos-wrapper .title {
+.movie-container .movie-infos-wrapper .title,
+.genre-container .genre-infos-wrapper .title {
     color: #FFF;
     font-size: 2.5rem;
 }
 
-.movie-container .movie-infos-wrapper .title span.name {
+.movie-container .movie-infos-wrapper .title span.name,
+.genre-container .genre-infos-wrapper .title span.name {
     font-weight: 700;
 }
 
-.movie-container .movie-infos-wrapper .title span.year {
+.genre-container .genre-infos-wrapper .title span.name {
+    color: #FFF;
 }
 
 .movie-container .movie-infos-wrapper .infos {

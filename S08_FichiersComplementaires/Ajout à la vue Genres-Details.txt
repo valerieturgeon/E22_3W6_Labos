@@ -1,0 +1,10 @@
+
+<div class="genre-movies mt-5">
+    <div class="row">
+        <div class="col-2 movie-wrapper mb-3" id="XXXXXXX">
+            <div class="card border-0 h-100" style="width:100%;">
+                <img class="card-img-top" src="https://image.tmdb.org/t/p/w138_and_h175_face/XXXXXXX" alt="XXXXXXX">
+            </div>
+        </div>
+    </div>
+</div>
