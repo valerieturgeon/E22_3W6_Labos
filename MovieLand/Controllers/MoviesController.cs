@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MovieLand_DataAccess.Data;
 using MovieLand_Models;
+using MovieLand_Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,11 @@ namespace MovieLand.Controllers
 
         public IActionResult Index()
         {
-            return View(_db.Movies.OrderByDescending(m => m.ReleaseYear).ThenBy(m => m.Title).ToList());
+            return View(_db.Movies
+                            .OrderByDescending(m => m.ReleaseYear)
+                                .ThenBy(m => m.Title)
+                                    .Select(m => new MovieForListVM(m))
+                                        .ToList());
         }
 
         public IActionResult Details(int? id)
