@@ -44,15 +44,7 @@
     <div class="row">
         @foreach (MovieCastForListVM mclvm in Model.Casts)
         {
-            <div class="col actor_wrapper mb-3" id="@mclvm.ActorId">
-                <div class="card border-0 h-100" style="width:100%;">
-                    <img class="card-img-top" src="https://image.tmdb.org/t/p/w138_and_h175_face/@(mclvm.Profile)" alt="@mclvm.Name">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0" style="font-size:1rem;">@mclvm.Name</h5>
-                        <p class="card-text" style="font-size:0.8rem;">@mclvm.Character</p>
-                    </div>
-                </div>
-            </div>
+            <partial name="_MovieCast" model="mclvm" />
         }
     </div>
 </div>
