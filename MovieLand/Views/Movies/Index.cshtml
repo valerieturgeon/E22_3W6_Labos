@@ -12,19 +12,8 @@
     </div>
 </div>
 <div class="row items-container">
-    @foreach (MovieForListVM m in Model)
+    @foreach (MovieForListVM mlvm in Model)
     {
-        <div class="col-2 item-wrapper mb-3" id="@m.Id">
-            <div class="card border-0 h-100" style="width:100%;">
-                <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_multi_faces/@(m.Poster)" alt="@m.Title">
-                <div class="card-body bg-dark">
-                    <div class="row item-actions">
-                        <div class="col item-action-edit"><a asp-action="Edit" asp-route-id="@m.Id"><i class="bi bi-pencil-fill text-white" title="Modifier le film"></i></a></div>
-                        <div class="col item-action-details"><a asp-action="Details" asp-route-id="@m.Id"><i class="bi bi-info-circle-fill text-white" title="Voir les détails du film"></i></a></div>
-                        <div class="col item-action-delete"><a asp-action="Delete" asp-route-id="@m.Id"><i class="bi bi-trash3-fill text-white" title="Supprimer le film"></i></a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <partial name="_MovieForList" model="mlvm" />
     }
 </div>
