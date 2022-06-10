@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Films";
+    ViewData["ShowActions"] = true;
 }
 
 
@@ -14,6 +15,6 @@
 <div class="row items-container">
     @foreach (MovieForListVM mlvm in Model)
     {
-        <partial name="_MovieForList" model="mlvm" />
+        <partial name="_MovieForList" model="mlvm" view-data="ViewData" />
     }
 </div>

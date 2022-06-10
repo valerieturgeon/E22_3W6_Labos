@@ -23,10 +23,6 @@
 <div class="row items-container">
     @foreach (MovieForListVM mlvm in Model.Movies)
     {
-    <div class="col-2 item-wrapper mb-3" id="@mlvm.Id">
-        <div class="card border-0 h-100" style="width:100%;">
-            <img class="card-img-top" src="https://image.tmdb.org/t/p/w185_and_h278_multi_faces/@mlvm.Poster" alt="@mlvm.Title">
-        </div>
-    </div>
+        <partial name="_MovieForList" model="mlvm" />
     }
 </div>
