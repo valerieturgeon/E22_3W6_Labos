@@ -10,9 +10,9 @@
             <h2 class="text-primary">Travel List</h2>
         </div>
         <div class="col-2 text-right">
-            <a asp-controller="Home" asp-action="Create" class="btn btn-info">
-                Create New Travel
-            </a>
+          <a asp-controller="Home" asp-action="Create" class="btn btn-info">
+            <i class="fas fa-plus"></i> &nbsp; Create New Travel
+          </a>
         </div>
     </div>
 
@@ -35,9 +35,9 @@
                 <td width="80%">@item.Name</td>
                 <td width="20%" class="text-center">
                     <div class="w-75 btn-group" role="group">
-                        <a class="btn btn-warning mx-2" asp-controller="Home" asp-action="Edit" asp-route-id="@item.Id">
-                            Edit
-                        </a>
+                      <a class="btn btn-warning mx-2" asp-controller="Home" asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="fas fa-edit"></i>&nbsp;Edit
+                      </a>
                     </div>
                 </td>
             </tr>
