@@ -31,16 +31,18 @@ namespace MovieLand.Controllers
                 return NotFound();
             }
 
-            Genre genre = _db.Genres
-                                .Where(g => g.GenreId == id)
-                                .Include(g => g.Movies).ThenInclude(mg => mg.Movie)
-                                    .FirstOrDefault();
-            if (genre == null)
+            GenreDetailsVM gdvm = _db.Genres
+                                        .Where(g => g.GenreId == id)
+                                            .Include(g => g.Movies)
+                                                .ThenInclude(mg => mg.Movie)
+                                                    .Select(g => new GenreDetailsVM(g))
+                                                        .FirstOrDefault();
+            if (gdvm == null)
             {
                 return NotFound();
             }
 
-            return View(genre);
+            return View(gdvm);
         }
     }
 }
