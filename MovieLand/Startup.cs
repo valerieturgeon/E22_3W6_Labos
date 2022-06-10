@@ -27,7 +27,7 @@ namespace MovieLand
         {
             services.AddDbContext<MovieLandDbContext>(options =>
                 options.UseSqlServer(
-                            Configuration.GetConnectionString("LaptopCegep")
+                            Configuration.GetConnectionString("D0604Cegep")
                 )
             );
 
@@ -58,7 +58,7 @@ namespace MovieLand
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Movies}/{action=Index}/{id?}");
             });
         }
     }
