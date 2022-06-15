@@ -1,10 +1,13 @@
 ﻿using ChampsSpeciaux.Data;
 using ChampsSpeciaux.Models;
+using ChampsSpeciaux.Utility;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,10 +17,13 @@ namespace ChampsSpeciaux.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _db;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ApplicationDbContext applicationDbContext)
+
+        public HomeController(ApplicationDbContext applicationDbContext, IWebHostEnvironment webHostEnvironment)
         {
            _db = applicationDbContext;
+           _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -39,6 +45,27 @@ namespace ChampsSpeciaux.Controllers
         {
             if (ModelState.IsValid)
             {
+                string webRootPath = _webHostEnvironment.WebRootPath; //Chemin des images de voyage: Travel
+                var files = HttpContext.Request.Form.Files; //nouvelle image récupérée
+
+                if (files.Count > 0)
+                {
+                    string fileName = Guid.NewGuid().ToString();// Nom fichier généré, unique
+                    var uploads = Path.Combine(webRootPath, AppConstants.ImagePath);// chemin pour les image
+                    var extenstion = Path.GetExtension(files[0].FileName); // extraire l'extention du fichier
+
+                    // Create un cannal pour transférer le fichier 
+                    using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + extenstion), FileMode.Create))
+                    {
+                        files[0].CopyTo(filesStreams);
+                    }
+
+                    // Composer le nom du fichier avec son extension qui sera enregister dans la BD
+                    // avec le path relatif à partir du Root
+                    // sans le path relatif (le path devra être ajouté dans la View)
+                    travel.TravelImage = fileName + extenstion;
+                }
+
                 // Ajouter à la BD
                 _db.Travel.Add(travel);
 
@@ -49,7 +76,7 @@ namespace ChampsSpeciaux.Controllers
         }
 
         //GET - EDIT
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
             Travel travel = new Travel();
             travel = _db.Travel.FirstOrDefault(u => u.Id == id);
