@@ -70,8 +70,10 @@ namespace ChampsSpeciaux.Controllers
                 await _db.Travel.AddAsync(travel);
 
                await _db.SaveChangesAsync();
+                TempData[AppConstants.Success] = "The travel was created.";
                 return RedirectToAction(nameof(Index));
             }
+            TempData[AppConstants.Error] = "An error occurred while creating the Travel.";
             return this.View(travel);
         }
 
@@ -96,8 +98,10 @@ namespace ChampsSpeciaux.Controllers
             {
                 _db.Travel.Update(travel);
                await _db.SaveChangesAsync();
+               TempData[AppConstants.Success] = "The travel was updated.";
                 return RedirectToAction(nameof(Index));
             }
+            TempData[AppConstants.Error] = "An error occurred while updating the Travel.";
             return View(travel);
         }
 

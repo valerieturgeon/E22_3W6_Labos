@@ -11,5 +11,9 @@ namespace ChampsSpeciaux.Utility
         public static string ImagePathView = @"/images/";
         public static string ImageGeneric = "TravelGeneric.png";
 
+        // Pour les notifications Toastr
+        public const string Success = "Success";
+        public const string Error = "Error";
+
     }
 }
