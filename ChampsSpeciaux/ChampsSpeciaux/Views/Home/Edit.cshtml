@@ -39,7 +39,7 @@
             <label asp-for="TravelImage"></label>
           </div>
           <div class="col-8">
-            <input asp-for="TravelImage" class="form-control" />
+            <input type="file" name="files" id="uploadBox" asp-for="TravelImage" class="form-control" />
             <span asp-validation-for="TravelImage" class="text-danger"></span>
           </div>
         </div>
@@ -61,7 +61,15 @@
 
 
       <div class="col-4 text-center pt-4">
-        <img src="~/images/TravelGeneric.png" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+        @if (Model.TravelImage != "")
+        {
+          <img src="@AppConstants.ImagePathView@Model.TravelImage" id="TravelImage" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+        }
+        else
+        {
+          <img src="@AppConstants.ImagePathView@AppConstants.ImageGeneric" id="TravelImage" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+        }
+
       </div>
 
     </div>
@@ -71,9 +79,28 @@
 @section Scripts{
   <partial name="_ValidationScriptsPartial" />
   <script>
-        $(document).ready(function () {
-            $('.summernote').summernote();
-        });
+    $(document).ready(function () {
+      $('.summernote').summernote();
+    });
+  </script>
+
+  <script>
+
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'lists',
+      menubar: 'file edit format'
+    });
+
+
+    function validateInput() {
+      if (document.getElementById("uploadBox").value == "") {
+        swal("Error", "Please select an image", "error");
+        return false;
+      }
+      return true;
+    };
+
   </script>
 
 }

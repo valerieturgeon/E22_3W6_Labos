@@ -67,9 +67,9 @@ namespace ChampsSpeciaux.Controllers
                 }
 
                 // Ajouter à la BD
-                _db.Travel.Add(travel);
+                await _db.Travel.AddAsync(travel);
 
-                _db.SaveChanges();
+               await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return this.View(travel);
@@ -90,12 +90,12 @@ namespace ChampsSpeciaux.Controllers
         //POST - EDIT
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Travel travel)
+        public async Task<IActionResult> Edit(Travel travel)
         {
             if (ModelState.IsValid)
             {
                 _db.Travel.Update(travel);
-                _db.SaveChanges();
+               await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(travel);
