@@ -3,6 +3,7 @@ using ChampsSpeciaux.Models;
 using ChampsSpeciaux.Utility;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -26,9 +27,9 @@ namespace ChampsSpeciaux.Controllers
            _webHostEnvironment = webHostEnvironment;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<Travel> TravelList =  _db.Travel.ToList();
+            IEnumerable<Travel> TravelList = await _db.Travel.ToListAsync();
 
             return View(TravelList);
         }
@@ -78,10 +79,10 @@ namespace ChampsSpeciaux.Controllers
         }
 
         //GET - EDIT
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             Travel travel = new Travel();
-            travel = _db.Travel.FirstOrDefault(u => u.Id == id);
+            travel = await _db.Travel.FirstOrDefaultAsync(u => u.Id == id);
             if (travel == null)
             {
                 return NotFound();
