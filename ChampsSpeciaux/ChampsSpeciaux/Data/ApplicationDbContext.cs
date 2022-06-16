@@ -15,5 +15,13 @@ namespace ChampsSpeciaux.Data
         }
 
         public DbSet<Travel> Travel { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //Générer des données de départ
+            modelBuilder.GenerateData();
+        }
     }
 }

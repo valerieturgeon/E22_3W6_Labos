@@ -4,10 +4,11 @@
   var title = "Edit a Travel"; }
 
 <div class="border p-3 DivBgForm">
-  <form class="form-horizontal" method="post" asp-action="Edit">
+  <form class="form-horizontal" method="post" asp-action="Edit" enctype="multipart/form-data">
     <div class="row p-3 border">
       <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+      <input hidden asp-for="Id" class="form-control" />
+      <input  asp-for="TravelImage" class="form-control" />
       <div class="col-12 border-bottom">
         <h2 class="text-primary">@title</h2>
       </div>
@@ -39,7 +40,7 @@
             <label asp-for="TravelImage"></label>
           </div>
           <div class="col-8">
-            <input type="file" name="files" id="uploadBox" asp-for="TravelImage" class="form-control" />
+            <input type="file" name="files" id="uploadBox" asp-for="TravelImage" class="form-control" value="@Model.TravelImage" />
             <span asp-validation-for="TravelImage" class="text-danger"></span>
           </div>
         </div>
@@ -82,16 +83,10 @@
     $(document).ready(function () {
       $('.summernote').summernote();
     });
+
   </script>
 
   <script>
-
-    tinymce.init({
-      selector: 'textarea',
-      plugins: 'lists',
-      menubar: 'file edit format'
-    });
-
 
     function validateInput() {
       if (document.getElementById("uploadBox").value == "") {

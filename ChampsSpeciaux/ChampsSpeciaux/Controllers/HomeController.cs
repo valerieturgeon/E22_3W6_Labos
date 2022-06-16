@@ -3,6 +3,7 @@ using ChampsSpeciaux.Models;
 using ChampsSpeciaux.Utility;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -78,10 +79,10 @@ namespace ChampsSpeciaux.Controllers
         }
 
         //GET - EDIT
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             Travel travel = new Travel();
-            travel = _db.Travel.FirstOrDefault(u => u.Id == id);
+            travel = await _db.Travel.FirstOrDefaultAsync(u => u.Id == id);
             if (travel == null)
             {
                 return NotFound();
@@ -96,6 +97,39 @@ namespace ChampsSpeciaux.Controllers
         {
             if (ModelState.IsValid)
             {
+                string webRootPath = _webHostEnvironment.WebRootPath; //Chemin des images de voyage: Travel
+                var files = HttpContext.Request.Form.Files; //nouvelle image récupérée
+
+                if (files.Count > 0)
+                {
+                    string fileName = Guid.NewGuid().ToString();// Nom fichier généré, unique
+                    var uploads = Path.Combine(webRootPath, AppConstants.ImagePath);// chemin pour les image
+                    var extenstion = Path.GetExtension(files[0].FileName); // extraire l'extention du fichier
+
+                    
+                    if (travel.TravelImage != null)
+                    {
+                        //L'image est modifiée: l'ancienne doit être supprimée
+                        var PreviousImage = Path.Combine(webRootPath, AppConstants.ImagePath, travel.TravelImage.TrimStart('\\'));
+                        if (System.IO.File.Exists(PreviousImage))
+                        {
+                            System.IO.File.Delete(PreviousImage);
+                        }
+                    }
+
+                    // Créer un canal pour transférer le fichier 
+                    using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + extenstion), FileMode.Create))
+                    {
+                        files[0].CopyTo(filesStreams);
+                    }
+                    // Composer le nom du fichier avec son extension qui sera enregister dans la BD
+                    // avec le path relatif à partir du Root
+                    // sans le path relatif (le path devra être ajouté dans la View)
+                    travel.TravelImage = fileName + extenstion;
+                }
+               
+
+
                 _db.Travel.Update(travel);
                await _db.SaveChangesAsync();
                TempData[AppConstants.Success] = "The travel was updated.";
