@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Appl_TestsUnitaires", "Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App_TestsUnitaires_Tests_NU", "App_TestsUnitaires_Tests_NU\App_TestsUnitaires_Tests_NU.csproj", "{AF91EA4E-1986-4D3C-B55E-4481B6DCD48F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App_TestsUnitaires_Tests_XU", "App_TestsUnitaires_Tests_XU\App_TestsUnitaires_Tests_XU.csproj", "{832877F3-432F-487F-9E20-082763107BD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AF91EA4E-1986-4D3C-B55E-4481B6DCD48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF91EA4E-1986-4D3C-B55E-4481B6DCD48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF91EA4E-1986-4D3C-B55E-4481B6DCD48F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832877F3-432F-487F-9E20-082763107BD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832877F3-432F-487F-9E20-082763107BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832877F3-432F-487F-9E20-082763107BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832877F3-432F-487F-9E20-082763107BD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
