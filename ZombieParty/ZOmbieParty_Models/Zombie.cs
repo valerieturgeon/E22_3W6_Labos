@@ -30,6 +30,11 @@ namespace ZombieParty_Models
 
     //OBLIGATOIRE Pour la relation 1 à plusieurs avec ZombieType
     public virtual ZombieType ZombieType { get; set; }
+
+    // Propriété de navigation vers zombieHuntingLog
+    //OBLIGATOIRE Pour la relation 1 à plusieurs avec zombieHuntingLog
+    public ICollection<ZombieHuntingLog> zombieHuntingLogs { get; set; }
+
     }
 
 }

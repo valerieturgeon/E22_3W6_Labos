@@ -17,16 +17,17 @@ namespace ZombieParty_DataAccess.Data
     public DbSet<Zombie> Zombie { get; set; }
     public DbSet<ZombieType> ZombieType { get; set; }
     public DbSet<HuntingLog> HuntingLog { get; set; }
-    
+    public DbSet<ZombieHuntingLog> ZombieHuntingLog { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
-      //// ZombieHuntingLog: clé composée (composite key)
-      //modelBuilder.Entity<ZombieHuntingLog>().HasKey(zh => new { zh.Zombie_Id, zh.HuntingLog_Id });
+            // ZombieHuntingLog: clé composée (composite key)
+            modelBuilder.Entity<ZombieHuntingLog>().HasKey(zh => new { zh.Zombie_Id, zh.HuntingLog_Id });
 
-      //// WeaponHunter: clé composée (composite key)
-      //modelBuilder.Entity<WeaponHunter>().HasKey(wh => new { wh.Weapon_Id, wh.Hunter_Id });
-    }
+            //// WeaponHunter: clé composée (composite key)
+            //modelBuilder.Entity<WeaponHunter>().HasKey(wh => new { wh.Weapon_Id, wh.Hunter_Id });
+        }
   }
 }
