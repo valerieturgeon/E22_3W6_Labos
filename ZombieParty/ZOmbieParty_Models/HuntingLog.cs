@@ -22,6 +22,6 @@ namespace ZombieParty_Models
     // Un Hunter PEUT avoir un ou plusieurs HuntingLog
     public int HunterId { get; set; }
     //OBLIGATOIRE Pour la relation 1 à plusieurs avec Hunter
-    public virtual Hunter Hunter { get; set; }
+    public  Hunter Hunter { get; set; }
   }
 }
