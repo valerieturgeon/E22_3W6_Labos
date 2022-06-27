@@ -11,8 +11,12 @@ namespace ZombieParty_Models
   {
     [Key]
     public int Id { get; set; }
-    [StringLength(10, MinimumLength = 5)]
+    
+    [Display(Name = "Nickname")]
+    [StringLength(10, MinimumLength = 5, ErrorMessage = "MinMaxCaractersValidation")]
     public string Nickname { get; set; }
+    
+        [Display(Name = "Biography")] 
     public string Biography { get; set; }
 
     // Propriété de navigation vers HuntingLog

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ZombieParty_Models.Zombie>
+
+<div class="container p-3">
+  <div class="row pt-4">
+    <div class="col-10">
+      <h2 class="text-primary">Zombie List</h2>
+    </div>
+    <div class="col-2 text-right">
+      <a asp-action="Upsert"  class="btn btn-success">
+        <i class="fas fa-plus"></i> &nbsp; Create New Zombie
+      </a>
+    </div>
+  </div>
+
+  <br />
+  
+    @if (Model.Count() > 0)
+    {
+      <table class="table table-bordered table-striped" style="width:100%">
+        <thead class="thead-dark">
+          <tr class="table-info">
+            <th> @Html.DisplayNameFor(model => model.Name)</th>
+            <th> @Html.DisplayNameFor(model => model.Point)</th>
+            <th> @Html.DisplayNameFor(model => model.ZombieType.TypeName)</th>
+            <th> @Html.DisplayNameFor(model => model.ForceLevel.ForceLevelNiv)</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (var obj in Model)
+          {
+            <tr>
+              <td width="50%">@obj.Name</td>
+              <td width="30%">@obj.Point</td>
+              <td width="20%">@obj.ZombieType.TypeName</td>
+              <td width="20%">@obj.ForceLevel.ForceLevelNiv</td>
+              <td class="text-center">
+                <div class="w-75 btn-group" role="group">
+                  <a asp-route-Id="" asp-action="" class="btn btn-primary mx-2">Update
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a asp-route-Id="" asp-action="" class="btn btn-danger mx-2">Delete
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+    else
+    {
+      <p>No product exists.</p>
+    }
+  </div>

@@ -11,11 +11,17 @@ namespace ZombieParty_Models
   {
     [Key]
     public int Id { get; set; }
+    [Display(Name = "Name")]
     public string Name { get; set; }
 
+    [Display(Name = "Point")]
     [Range(1, 10, ErrorMessage = "RangeValidation")]
     public int Point { get; set; }
+
+    [Display(Name = "ShortDesc")] 
     public string ShortDesc { get; set; }
+
+    [Display(Name = "Image")]
     public string Image { get; set; }
 
         //Supprimée: remplacée par liaison à la table ZombieType
@@ -31,18 +37,18 @@ namespace ZombieParty_Models
     //OBLIGATOIRE Pour la relation 1 à plusieurs avec ZombieType
     public virtual ZombieType ZombieType { get; set; }
 
-        // FACULTATIF on peut formellement identifier le champ lien
-        [ForeignKey("ForceLevel")]
-        // Un Zombie PEUT ou non avoir un ForceLevel, donc int peut être null
-        public int? ForceLevelId { get; set; }
-        //Propriété de navigation
-        //OBLIGATOIRE Pour la relation 1 à plusieurs avec ForceLevel
-        public virtual ForceLevel ForceLevel { get; set; }
+    [Display(Name = "ForceLevel")]
+    // FACULTATIF on peut formellement identifier le champ lien
+    [ForeignKey("ForceLevel")]
+    // Un Zombie PEUT ou non avoir un ForceLevel, donc int peut être null
+    public int? ForceLevelId { get; set; }
 
-        // Propriété de navigation vers zombieHuntingLog
-        //OBLIGATOIRE Pour la relation 1 à plusieurs avec zombieHuntingLog
-        public ICollection<ZombieHuntingLog> zombieHuntingLogs { get; set; }
+    //Propriété de navigation
+    //OBLIGATOIRE Pour la relation 1 à plusieurs avec ForceLevel
+    public virtual ForceLevel ForceLevel { get; set; }
 
-    }
-
+    // Propriété de navigation vers zombieHuntingLog
+    //OBLIGATOIRE Pour la relation 1 à plusieurs avec zombieHuntingLog
+    public ICollection<ZombieHuntingLog> zombieHuntingLogs { get; set; }
+  }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZombieParty_DataAccess.Data;
 
 namespace ZombieParty_DataAccess.Migrations
 {
     [DbContext(typeof(ZombiePartyDbContext))]
-    partial class ZombiePartyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220627152602_AddForceLevel")]
+    partial class AddForceLevel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,58 +50,6 @@ namespace ZombieParty_DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ForceLevel");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ForceLevelNiv = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ForceLevelNiv = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ForceLevelNiv = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ForceLevelNiv = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ForceLevelNiv = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ForceLevelNiv = 6
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ForceLevelNiv = 7
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ForceLevelNiv = 8
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ForceLevelNiv = 9
-                        },
-                        new
-                        {
-                            Id = 10,
-                            ForceLevelNiv = 10
-                        });
                 });
 
             modelBuilder.Entity("ZombieParty_Models.Hunter", b =>
@@ -204,161 +154,6 @@ namespace ZombieParty_DataAccess.Migrations
                     b.HasIndex("ZombieTypeId");
 
                     b.ToTable("Zombie");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ForceLevelId = 8,
-                            Name = "LeChuck",
-                            Point = 5,
-                            ShortDesc = "Pirate des Caraibes",
-                            ZombieTypeId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ForceLevelId = 6,
-                            Name = "Lenore",
-                            Point = 4,
-                            ShortDesc = "Cute Little Dead Girl",
-                            ZombieTypeId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ForceLevelId = 4,
-                            Name = "Baron Samedi",
-                            Point = 8,
-                            ShortDesc = "En costume de soirée, avec un chapeau haut de forme blanc et des lunettes soleil",
-                            ZombieTypeId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ForceLevelId = 9,
-                            Name = "Draugr",
-                            Point = 2,
-                            ShortDesc = "Vivant dans sa tombe grandant son trésor",
-                            ZombieTypeId = 3
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ForceLevelId = 4,
-                            Name = "Ragamuffin ",
-                            Point = 5,
-                            ShortDesc = "Ancien vampire transformé en poupée de chiffon, ami de Lenore",
-                            ZombieTypeId = 2
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ForceLevelId = 3,
-                            Name = "Mr Gosh",
-                            Point = 6,
-                            ShortDesc = "Tête de sac avec yeux en boutons, amoureux de Lenore",
-                            ZombieTypeId = 1
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ForceLevelId = 1,
-                            Name = "Taxidermy ",
-                            Point = 1,
-                            ShortDesc = "Tête de cerf empaillé, voisin de Lenore",
-                            ZombieTypeId = 3
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ForceLevelId = 9,
-                            Name = "Kitty",
-                            Point = 3,
-                            ShortDesc = "Chat mort de Lenore",
-                            ZombieTypeId = 1
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ForceLevelId = 3,
-                            Name = "Singe zombie",
-                            Point = 2,
-                            ShortDesc = "Voleur très rapide",
-                            ZombieTypeId = 3
-                        },
-                        new
-                        {
-                            Id = 10,
-                            ForceLevelId = 5,
-                            Name = "chien de l'enfer",
-                            Point = 7,
-                            ShortDesc = "chien très rapide, pouvant être enflammé",
-                            ZombieTypeId = 3
-                        },
-                        new
-                        {
-                            Id = 11,
-                            ForceLevelId = 9,
-                            Name = "Avogadro",
-                            Point = 9,
-                            ShortDesc = "Attaque avec des éclairs suite à un orage",
-                            ZombieTypeId = 3
-                        },
-                        new
-                        {
-                            Id = 12,
-                            ForceLevelId = 9,
-                            Name = "Lady Rose",
-                            Point = 6,
-                            ShortDesc = "",
-                            ZombieTypeId = 3
-                        },
-                        new
-                        {
-                            Id = 13,
-                            ForceLevelId = 10,
-                            Name = "Matbeth",
-                            Point = 2,
-                            ShortDesc = "Jeune étudiante qui cherche son professeur pour se venger",
-                            ZombieTypeId = 2
-                        },
-                        new
-                        {
-                            Id = 14,
-                            ForceLevelId = 2,
-                            Name = "The Clown",
-                            Point = 5,
-                            ShortDesc = "Le clown malheureux qui court après les enfants",
-                            ZombieTypeId = 3
-                        },
-                        new
-                        {
-                            Id = 15,
-                            ForceLevelId = 5,
-                            Name = "Clicker",
-                            Point = 4,
-                            ShortDesc = "Le comptable mécontent qui cherche les failles",
-                            ZombieTypeId = 2
-                        },
-                        new
-                        {
-                            Id = 16,
-                            ForceLevelId = 9,
-                            Name = "TeamsZombie",
-                            Point = 10,
-                            ShortDesc = "L'étudiant happé par Teams. Trop d'heures de vidéos ont transformé cet étudiant en zombie",
-                            ZombieTypeId = 3
-                        },
-                        new
-                        {
-                            Id = 17,
-                            ForceLevelId = 7,
-                            Name = "Mathilde",
-                            Point = 4,
-                            ShortDesc = "La fêtarde du samedi soir qui cherche les fêtes et les bars en vogue",
-                            ZombieTypeId = 3
-                        });
                 });
 
             modelBuilder.Entity("ZombieParty_Models.ZombieHuntingLog", b =>
@@ -383,9 +178,6 @@ namespace ZombieParty_DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Point")
-                        .HasColumnType("int");
-
                     b.Property<string>("TypeName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -393,38 +185,6 @@ namespace ZombieParty_DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ZombieType");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Point = 0,
-                            TypeName = "Contact"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Point = 0,
-                            TypeName = "Virus"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Point = 0,
-                            TypeName = "Chimique"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Point = 0,
-                            TypeName = "Morsure"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Point = 0,
-                            TypeName = "vampzombie"
-                        });
                 });
 
             modelBuilder.Entity("ZombieParty_Models.HuntingLog", b =>
