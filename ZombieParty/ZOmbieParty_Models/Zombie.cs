@@ -28,7 +28,7 @@ namespace ZombieParty_Models
         //NOTE: vous devez supprimer la liste du ViewBag dans le ZombieController pour compiler
         //public string Type { get; set; }
 
-        [Display(Name = "Zombie Type")]
+        [Display(Name = "ZombieType")]
     // FACULTATIF on peut formellement identifier le champ lien
     [ForeignKey("ZombieType")]
     // Un Zombie DOIT avoir un ZombieType, donc int Ne peut PAS être null
@@ -43,9 +43,10 @@ namespace ZombieParty_Models
     // Un Zombie PEUT ou non avoir un ForceLevel, donc int peut être null
     public int? ForceLevelId { get; set; }
 
-    //Propriété de navigation
-    //OBLIGATOIRE Pour la relation 1 à plusieurs avec ForceLevel
-    public virtual ForceLevel ForceLevel { get; set; }
+        [Display(Name = "ForceLevel")]
+        //Propriété de navigation
+        //OBLIGATOIRE Pour la relation 1 à plusieurs avec ForceLevel
+        public virtual ForceLevel ForceLevel { get; set; }
 
     // Propriété de navigation vers zombieHuntingLog
     //OBLIGATOIRE Pour la relation 1 à plusieurs avec zombieHuntingLog

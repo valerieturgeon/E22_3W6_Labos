@@ -1,0 +1,119 @@
+﻿@model ZombieParty_Models.ViewModels.ZombieVM
+@using ZombieParty_Utility 
+
+@{
+  var title = "Create Zombie";
+}
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+
+  <div class="row px-2 mx-2 backgroundWhite border">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @if (Model.Zombie != null)
+    {
+      <input type="hidden" asp-for="Zombie.Id" />
+      title = "Edit Zombie";
+    }
+
+    <div class="col-12">
+      <h2 class="text-primary">@title</h2>
+      <br />
+    </div>
+
+    <div class="col-9">
+
+      <div class="form-group row">
+        <div class="col-4">
+          <label asp-for="Zombie.Name" class="col-form-label"></label>
+        </div>
+        <div class="col-8">
+          <input asp-for="Zombie.Name" class="form-control" />
+          <span asp-validation-for="Zombie.Name" class="text-danger"></span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-4">
+          <label asp-for="Zombie.Point" class="col-form-label"></label>
+        </div>
+        <div class="col-8">
+          <input asp-for="Zombie.Point" id="txtPoint" class="form-control" />
+          <span asp-validation-for="Zombie.Point" class="text-danger"></span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-4">
+          <label asp-for="Zombie.ShortDesc" class="col-form-label"></label>
+        </div>
+        <div class="col-8">
+          <textarea asp-for="Zombie.ShortDesc" class="form-control" style="height:300px;"></textarea>
+          <span asp-validation-for="Zombie.ShortDesc" class="text-danger"></span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-4">
+          <label asp-for="Zombie.Image" class="col-form-label"></label>
+        </div>
+        <div class="col-8">
+          <input type="file" name="files" id="uploadBox" multiple class="form-control" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-4">
+          <label asp-for="Zombie.ZombieTypeId" class="col-form-label"></label>
+        </div>
+        <div class="col-8">
+          <select asp-for="Zombie.ZombieTypeId" asp-items="@Model.ZombieTypeSelectList"
+                  class="form-select">
+            <option disabled selected>--Select Zombie Type--</option>
+          </select>
+          <span asp-validation-for="Zombie.ZombieTypeId" class="text-danger"></span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-4">
+          <label asp-for="Zombie.ForceLevelId" class="col-form-label"></label>
+        </div>
+        <div class="col-8">
+          <select asp-for="Zombie.ForceLevelId" asp-items="@Model.ForceLevelSelectList"
+                  class="form-select">
+            <option disabled selected>--Select Force Level--</option>
+          </select>
+          <span asp-validation-for="Zombie.ForceLevelId" class="text-danger"></span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-8 offset-4 row">
+          <div class="col">
+            @if (Model.Zombie != null)
+            {
+              //EDIT
+              <input type="submit" class="btn btn-info w-100" value="Update" />
+            }
+            else
+            {
+              //CREATE
+              <input type="submit" class="btn btn-primary w-100" value="Create" />
+            }
+          </div>
+
+          <div class="col">
+            <a asp-action="Index" class="btn btn-success w-100">Back to list</a>
+          </div>
+
+        </div>
+      </div>
+
+      </div>
+
+      <div class="col-3">
+        <img src="images/Zombies/GenericZombie.png" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+      </div>
+   
+
+  </div>
+
+</form>

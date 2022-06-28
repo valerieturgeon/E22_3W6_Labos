@@ -11,7 +11,7 @@ namespace ZombieParty_Models
     [Key]
     public int Id { get; set; }
 
-    [Display(Name = "ForceLevelNiv")]
+    [Display(Name = "ForceLevel")]
     [Range(5, 10, ErrorMessage = "RangeValidation")]
     public int ForceLevelNiv { get; set; }
 

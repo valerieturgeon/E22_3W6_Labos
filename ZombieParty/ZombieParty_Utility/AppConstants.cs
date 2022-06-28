@@ -13,7 +13,7 @@ namespace ZombieParty_Utility
 
 
 
-        // Pour les notifications Toastr
+        // Pour les notifications Toastr ou SweetAlert
         public const string Success = "Success";
     public const string Error = "Error";
 

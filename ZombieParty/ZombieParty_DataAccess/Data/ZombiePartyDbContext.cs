@@ -16,6 +16,7 @@ namespace ZombieParty_DataAccess.Data
 
     public DbSet<Zombie> Zombie { get; set; }
     public DbSet<ZombieType> ZombieType { get; set; }
+    public DbSet<ForceLevel> ForceLevel { get; set; }
     public DbSet<HuntingLog> HuntingLog { get; set; }
     public DbSet<ZombieHuntingLog> ZombieHuntingLog { get; set; }
     public DbSet<Hunter> Hunter { get; set; }
