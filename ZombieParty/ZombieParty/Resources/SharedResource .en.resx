@@ -156,6 +156,15 @@
   <data name="Index" xml:space="preserve">
     <value>Index</value>
   </data>
+  <data name="ManageZombiesCard" xml:space="preserve">
+    <value>Manage zombies (cards)</value>
+  </data>
+  <data name="ManageZombiesList" xml:space="preserve">
+    <value>Manage Zombies (list)</value>
+  </data>
+  <data name="ManageZombieTypes" xml:space="preserve">
+    <value>Manage Zombie Types</value>
+  </data>
   <data name="MaxCaractersValidation" xml:space="preserve">
     <value>{0} can have {1} characters maximum.</value>
   </data>

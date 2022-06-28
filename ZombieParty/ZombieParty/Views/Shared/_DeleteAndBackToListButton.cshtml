@@ -1,8 +1,8 @@
 ﻿<div class="row">
     <div class="col">
-        <button asp-action="DeletePost" class="btn btn-danger form-control" asp-route-id="@Model">Delete</button>
-    </div>
+      <button asp-action="DeletePost" class="btn btn-danger form-control" asp-route-id="@Model">@SharedLocals["Delete"]</button>
+</div>
     <div class="col">
-        <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
-    </div>
+      <a asp-action="Index" class="btn btn-success form-control">@SharedLocals["Back to List"]</a>
+</div>
 </div>
