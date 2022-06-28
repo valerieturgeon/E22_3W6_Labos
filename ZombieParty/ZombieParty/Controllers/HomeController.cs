@@ -17,22 +17,28 @@ namespace ZombieParty.Controllers
     private readonly ILogger<HomeController> _logger;
         //TODO 07: Injection des resources localizer locals / shared
         private readonly IStringLocalizer<HomeController> _localizer;
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 
 
-        public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer)
+
+        public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer, IStringLocalizer<SharedResource> sharedLocalizer)
     {
       _logger = logger;
       _localizer = localizer;
-    }
+      _sharedLocalizer = sharedLocalizer;
 
-    public IActionResult Index()
+     }
+
+        public IActionResult Index()
     {
-      return View();
+            ViewData["Title"] = this._localizer["HomeIndexTitle"];
+            return View();
     }
 
     public IActionResult Privacy()
     {
-      return View();
+            ViewBag.Title = _localizer["PrivacyTitle"]; 
+            return View();
     }
 
     [HttpPost]
