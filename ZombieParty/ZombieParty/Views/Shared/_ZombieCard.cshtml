@@ -6,9 +6,10 @@
     <div class="card-body px-3 pt-3 pb-1 row">
       <p class="card-title text-center text-warning h5"><b>@Model.Name</b></p>
     </div>
-    @if (@Model.Image == null)
+    @*Permet d'afficher l'image générique ou la photo du zombie*@
+    @if (Model.Image == "" || Model.Id == 0)
     {
-      <img class="card-img-top img-fluid d-block mx-auto mb-3" src="/images/Zombies/GenericZombie.png" alt="Zombie photo" style="width:85%">
+      <img class="card-img-top img-fluid d-block mx-auto mb-3" src="@AppConstants.ImageZombiePath@AppConstants.ImageZombieGeneric" alt="Zombie photo" style="width:85%">
     }
     else
     {
@@ -19,7 +20,7 @@
       <span class="badge p-2 border w-100 btn-dark">@Model.ZombieType.TypeName</span>
     </div>
     <div class="col-6" style="padding-left:3px;padding-right:25px;">
-      <span class="badge p-2 border w-100 btn-primary">FORCE</span>
+      <span class="badge p-2 border w-100 btn-primary">@Model.ForceLevel.ForceLevelNiv</span>
     </div>
     <div style="padding-left:25px;">
       <p class="text-white">Points: <span><b class="">@Model.Point</b></span></p>

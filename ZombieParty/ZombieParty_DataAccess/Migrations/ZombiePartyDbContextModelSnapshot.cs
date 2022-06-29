@@ -210,6 +210,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 1,
                             ForceLevelId = 8,
+                            Image = "",
                             Name = "LeChuck",
                             Point = 5,
                             ShortDesc = "Pirate des Caraibes",
@@ -219,6 +220,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 2,
                             ForceLevelId = 6,
+                            Image = "c7be9999-3b37-4d97-a131-914a4d15009a.png",
                             Name = "Lenore",
                             Point = 4,
                             ShortDesc = "Cute Little Dead Girl",
@@ -228,6 +230,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 3,
                             ForceLevelId = 4,
+                            Image = "02cdda86-0430-465a-acf5-d7ae3679bf97.png",
                             Name = "Baron Samedi",
                             Point = 8,
                             ShortDesc = "En costume de soirée, avec un chapeau haut de forme blanc et des lunettes soleil",
@@ -237,6 +240,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 4,
                             ForceLevelId = 9,
+                            Image = "8b2eaef1-45c3-4b32-9a6a-80173ceafd3b.png",
                             Name = "Draugr",
                             Point = 2,
                             ShortDesc = "Vivant dans sa tombe grandant son trésor",
@@ -246,6 +250,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 5,
                             ForceLevelId = 4,
+                            Image = "9bf4cadc-8d64-4aa5-b3b9-a481460e69b5.png",
                             Name = "Ragamuffin ",
                             Point = 5,
                             ShortDesc = "Ancien vampire transformé en poupée de chiffon, ami de Lenore",
@@ -255,6 +260,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 6,
                             ForceLevelId = 3,
+                            Image = "8b3e0771-da5a-4890-aad2-4eb5d91a38c2.png",
                             Name = "Mr Gosh",
                             Point = 6,
                             ShortDesc = "Tête de sac avec yeux en boutons, amoureux de Lenore",
@@ -264,6 +270,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 7,
                             ForceLevelId = 1,
+                            Image = "d8ffd3ac-79ef-4a9e-8287-9171acb3744c.png",
                             Name = "Taxidermy ",
                             Point = 1,
                             ShortDesc = "Tête de cerf empaillé, voisin de Lenore",
@@ -273,6 +280,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 8,
                             ForceLevelId = 9,
+                            Image = "548bb040-9748-43f0-98f6-64e4e3ae7b80.png",
                             Name = "Kitty",
                             Point = 3,
                             ShortDesc = "Chat mort de Lenore",
@@ -282,6 +290,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 9,
                             ForceLevelId = 3,
+                            Image = "4dab96ad-a1cc-44b3-99f5-804d4e5fac81.png",
                             Name = "Singe zombie",
                             Point = 2,
                             ShortDesc = "Voleur très rapide",
@@ -291,6 +300,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 10,
                             ForceLevelId = 5,
+                            Image = "5efefdf4-26c9-490e-b038-11b3e51af2c1.png",
                             Name = "chien de l'enfer",
                             Point = 7,
                             ShortDesc = "chien très rapide, pouvant être enflammé",
@@ -300,6 +310,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 11,
                             ForceLevelId = 9,
+                            Image = "89935c4d-41c1-469b-87f2-ca588af035c5.png",
                             Name = "Avogadro",
                             Point = 9,
                             ShortDesc = "Attaque avec des éclairs suite à un orage",
@@ -309,6 +320,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 12,
                             ForceLevelId = 9,
+                            Image = "0c3c00b8-463e-4a8e-ac1a-639c1293b06d.png",
                             Name = "Lady Rose",
                             Point = 6,
                             ShortDesc = "",
@@ -318,6 +330,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 13,
                             ForceLevelId = 10,
+                            Image = "d878df80-bb9f-470b-a328-a641b2c911d1.png",
                             Name = "Matbeth",
                             Point = 2,
                             ShortDesc = "Jeune étudiante qui cherche son professeur pour se venger",
@@ -327,6 +340,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 14,
                             ForceLevelId = 2,
+                            Image = "7180c597-7add-48a4-b33e-71de5d6fed7e.png",
                             Name = "The Clown",
                             Point = 5,
                             ShortDesc = "Le clown malheureux qui court après les enfants",
@@ -336,6 +350,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 15,
                             ForceLevelId = 5,
+                            Image = "97d242a7-eef2-4f88-b5ac-9dd73504284b.png",
                             Name = "Clicker",
                             Point = 4,
                             ShortDesc = "Le comptable mécontent qui cherche les failles",
@@ -345,6 +360,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 16,
                             ForceLevelId = 9,
+                            Image = "3c337bf8-7871-4acc-99a7-90829830c54a.png",
                             Name = "TeamsZombie",
                             Point = 10,
                             ShortDesc = "L'étudiant happé par Teams. Trop d'heures de vidéos ont transformé cet étudiant en zombie",
@@ -354,6 +370,7 @@ namespace ZombieParty_DataAccess.Migrations
                         {
                             Id = 17,
                             ForceLevelId = 7,
+                            Image = "98b6987a-c4f8-462c-9a99-e9163138fb5a.png",
                             Name = "Mathilde",
                             Point = 4,
                             ShortDesc = "La fêtarde du samedi soir qui cherche les fêtes et les bars en vogue",

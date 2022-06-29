@@ -1,9 +1,10 @@
 ﻿@model ZombieParty_Models.ViewModels.ZombieVM
-@using ZombieParty_Utility 
+@using ZombieParty_Utility
 
 @{
   var title = "Create Zombie";
 }
+@*enctype doit être multipart/form-data pour mettre l'échange de fichier'*@
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
 
   <div class="row px-2 mx-2 backgroundWhite border">
@@ -11,6 +12,7 @@
     @if (Model.Zombie != null)
     {
       <input type="hidden" asp-for="Zombie.Id" />
+      <input type="hidden" asp-for="Previous" value="@Model.Zombie.Image" />
       title = "Edit Zombie";
     }
 
@@ -55,7 +57,7 @@
           <label asp-for="Zombie.Image" class="col-form-label"></label>
         </div>
         <div class="col-8">
-          <input type="file" name="files" id="uploadBox" multiple class="form-control" />
+          <input type="file" asp-for="Zombie.Image" name="files" id="uploadBox" multiple class="form-control" />
         </div>
       </div>
 
@@ -107,13 +109,40 @@
         </div>
       </div>
 
-      </div>
-
+    </div>
+    @if (Model.Zombie.Image !="" || Model.Zombie.Id != 0)
+    {
       <div class="col-3">
-        <img src="images/Zombies/GenericZombie.png" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
-      </div>
-   
+        <img src="@AppConstants.ImageZombiePath@Model.Zombie.Image" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+      </div> }
+    else
+    {
+      <div class="col-3">
+        <img src="@AppConstants.ImageZombiePath@AppConstants.ImageZombieGeneric" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+      </div>}
 
   </div>
 
 </form>
+@section Scripts{
+  @{
+    <partial name="_ValidationScriptsPartial" />
+  }
+
+  <script>$(document).ready(function () {
+      $('.summernote').summernote();
+    });
+
+    function validateInput() {
+      if (document.getElementById("uploadBox").value == "") {
+        Swal.fire(
+          'Error!',
+          'Please upload an Image!',
+          'error'
+        )
+        return false;
+      }
+      return true;
+    }</script>
+
+}

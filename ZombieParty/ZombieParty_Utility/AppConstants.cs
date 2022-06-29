@@ -7,7 +7,7 @@ namespace ZombieParty_Utility
   public static class AppConstants
   {
     // Paths images données
-    public static string ImageZombiePath = @"images\Zombies\";
+    public static string ImageZombiePath = @"\images\Zombies\";
     public static string ImageZombieView = @"/images/";
     public static string ImageZombieGeneric = "GenericZombie.png";
 
